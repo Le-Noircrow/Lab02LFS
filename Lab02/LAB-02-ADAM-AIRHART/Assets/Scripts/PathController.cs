@@ -14,7 +14,7 @@ public class PathController : MonoBehaviour
 
     public Animator animator;   //
     bool isWalking;             //
-
+    public bool NPC;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,10 +49,22 @@ public class PathController : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            isWalking = !isWalking;
-            animator.SetBool("isWalking", isWalking);
+            if (NPC == false)
+            {
+                isWalking = !isWalking;
+                animator.SetBool("isWalking", isWalking);
+            }
+
+        }
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            if (NPC == true)
+            {
+                isWalking = !isWalking;
+                animator.SetBool("isWalking", isWalking);
+            }
 
         }
         if (isWalking)
